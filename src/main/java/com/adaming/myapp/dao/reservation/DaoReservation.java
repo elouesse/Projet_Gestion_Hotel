@@ -59,7 +59,7 @@ public class DaoReservation implements IdaoReservation {
 
 	@Override
 	public Double getTotalCostReservation(Long idR) {
-		// TODO Auto-generated method stub
+		Double 
 		return null;
 	}
 
