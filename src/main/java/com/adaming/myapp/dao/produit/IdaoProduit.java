@@ -22,11 +22,5 @@ public interface IdaoProduit {
 	public Produit deleteProduit(Long idProduit);
 	public List<Produit> getListeDesProduits();
 	public Produit getProduitParId(Long idProduit);
-		
-	/**addProduit
-	*supprimer un produit
-	*modifier les renseignements d'un produit
-	*récupérer la liste de tout les produits
-	*récupérer un produit par Id*/
 
 }
