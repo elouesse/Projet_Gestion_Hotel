@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+		<!-- 	Injection des dependences -->
+	<bean id="daoPersonne" class="com.adaming.myapp.dao.person.DaoPersonne"></bean>
+	<bean id="servicePersonne" class="com.adaming.myapp.service.person.ServicePersonne">
+	<property name="dao" ref="daoPersonne"></property>
+	</bean>
+	<bean id="daoChambre" class="com.adaming.myapp.dao.chambre.DaoChambre"></bean>
+	<bean id="serviceChambre" class="com.adaming.myapp.service.chambre.ServiceChambre">
+	<property name="dao" ref="daoChambre"></property>
+	</bean>
+	<bean id="daoConsommation" class="com.adaming.myapp.dao.consommation.DaoConsommation"></bean>
+	<bean id="serviceConsommation" class="com.adaming.myapp.service.consommation.ServiceConsommation">
+	<property name="dao" ref="daoConsommation"></property>
+	</bean>
+	<bean id="daoFacture" class="com.adaming.myapp.dao.facture.DaoFacture"></bean>
+	<bean id="serviceFacture" class="com.adaming.myapp.service.facture.ServiceFacture">
+	<property name="dao" ref="daoFacture"></property>
+	</bean>
+	<bean id="daoHotel" class="com.adaming.myapp.dao.hotel.DaoHotel"></bean>
+	<bean id="serviceHotel" class="com.adaming.myapp.service.hotel.ServiceHotel">
+	<property name="dao" ref="daoHotel"></property>
+	</bean>
+	<bean id="daoPaiement" class="com.adaming.myapp.dao.paiement.DaoPaiement"></bean>
+	<bean id="servicePaiement" class="com.adaming.myapp.service.paiement.ServicePaiement">
+	<property name="dao" ref="daoPaiement"></property>
+	</bean>
+	<bean id="daoProduit" class="com.adaming.myapp.dao.produit.DaoProduit"></bean>
+	<bean id="serviceProduit" class="com.adaming.myapp.service.produit.ServiceProduit">
+	<property name="dao" ref="daoProduit"></property>
+	</bean>
+	<bean id="daoReservation" class="com.adaming.myapp.dao.reservation.DaoReservation"></bean>
+	<bean id="serviceReservation" class="com.adaming.myapp.service.reservation.ServiceReservation">
+	<property name="dao" ref="daoReservation"></property>
+	</bean>
+	
+	
+	<bean id="datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost/ghotel"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value=""></property>
+	</bean>
+
+	<bean id="PersistenceUnitManager"
+		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="defaultDataSource" ref="datasource"></property>
+		<property name="persistenceXmlLocations">
+			<list>
+				<value>classpath*:META-INF/persistence.xml</value>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="EntityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="PersistenceUnitManager"></property>
+		<property name="persistenceUnitName" value="GestHot"></property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="EntityManagerFactory"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"  />
+	<context:annotation-config></context:annotation-config>
+
+
+</beans>
