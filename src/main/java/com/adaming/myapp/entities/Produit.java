@@ -30,10 +30,6 @@ public class Produit {
 	private String nomProduit;
 	private String referenceProduit;
 	private Integer quantiteProduite;
-	
-	//Association
-	@OneToMany
-	private List<Consommation> consom;
 
 	
 	// Constructors
@@ -80,13 +76,5 @@ public class Produit {
 	public void setQuantiteProduite(Integer quantiteProduite) {
 		this.quantiteProduite = quantiteProduite;
 	}
-	public List<Consommation> getConsom() {
-		return consom;
-	}
-	public void setConsom(List<Consommation> consom) {
-		this.consom = consom;
-	}
-	
-	
 
 }

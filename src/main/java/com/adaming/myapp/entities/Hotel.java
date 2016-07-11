@@ -29,6 +29,11 @@ public class Hotel {
 	private String nomHotel;
 	private String adrHotel;
 	private Integer classeHotel;
+	private String pays;
+	private String codePostal;
+	private String numTel;
+	private String numFax;
+	private String adrMail;
 	
 	//Associations
 	@OneToMany
@@ -42,13 +47,21 @@ public class Hotel {
 	public Hotel() {
 		super();
 	}
-	public Hotel(String nomHotel, String adrHotel, Integer classeHotel) {
+	public Hotel(String nomHotel, String adrHotel, Integer classeHotel,
+			String pays, String codePostal, String numTel, String numFax,
+			String adrMail) {
 		super();
 		this.nomHotel = nomHotel;
 		this.adrHotel = adrHotel;
 		this.classeHotel = classeHotel;
+		this.pays = pays;
+		this.codePostal = codePostal;
+		this.numTel = numTel;
+		this.numFax = numFax;
+		this.adrMail = adrMail;
 	}
-	
+
+
 	//Getters and Setters
 	public Long getIdHotel() {
 		return idHotel;
@@ -91,6 +104,36 @@ public class Hotel {
 	}
 	public void setFacture(List<Facture> facture) {
 		this.facture = facture;
+	}
+	public String getPays() {
+		return pays;
+	}
+	public void setPays(String pays) {
+		this.pays = pays;
+	}
+	public String getCodePostal() {
+		return codePostal;
+	}
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+	public String getNumTel() {
+		return numTel;
+	}
+	public void setNumTel(String numTel) {
+		this.numTel = numTel;
+	}
+	public String getNumFax() {
+		return numFax;
+	}
+	public void setNumFax(String numFax) {
+		this.numFax = numFax;
+	}
+	public String getAdrMail() {
+		return adrMail;
+	}
+	public void setAdrMail(String adrMail) {
+		this.adrMail = adrMail;
 	}
 
 }

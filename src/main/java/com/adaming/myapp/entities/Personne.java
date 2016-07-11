@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * Nom Classe: Personne
@@ -48,6 +49,10 @@ public abstract class Personne {
 		this.adrEmail = adrEmail;
 		this.numeroTelephone = numeroTelephone;
 	}
+	
+	//Association
+	@ManyToOne
+	private Hotel hotel;
 	
 	//Getters and Setters
 	public Long getIdPersonne() {
@@ -91,6 +96,12 @@ public abstract class Personne {
 	}
 	public void setNumeroTelephone(String numeroTelephone) {
 		this.numeroTelephone = numeroTelephone;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 

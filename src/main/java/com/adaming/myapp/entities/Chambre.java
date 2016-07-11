@@ -5,10 +5,14 @@ package com.adaming.myapp.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -34,8 +38,11 @@ public abstract class Chambre {
 	private final Integer nombreLit = 1;
 
 	//Association
-	@OneToMany
+	@OneToMany(mappedBy="chambre", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Reservation> reserv;
+	@ManyToOne
+	@JoinColumn(name="idHotel")
+	private Hotel hotel;
 	
 	// Constructors
 	public Chambre() {
@@ -92,6 +99,12 @@ public abstract class Chambre {
 	}
 	public void setNumeroChambre(Integer numeroChambre) {
 		this.numeroChambre = numeroChambre;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 
