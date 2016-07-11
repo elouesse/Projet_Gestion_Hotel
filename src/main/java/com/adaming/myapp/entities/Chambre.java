@@ -26,6 +26,7 @@ public abstract class Chambre {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idChambre;
+	private Integer numeroChambre;
 	private final Double prix =10.0;
 	private final Double surface =10.0;
 	private Integer etage;
@@ -40,8 +41,9 @@ public abstract class Chambre {
 	public Chambre() {
 		super();
 	}
-	public Chambre(Integer etage) {
+	public Chambre(Integer numeroChambre, Integer etage) {
 		super();
+		this.numeroChambre = numeroChambre;
 		this.etage = etage;
 	}
 	
@@ -84,6 +86,12 @@ public abstract class Chambre {
 
 	public Double getSurface() {
 		return surface;
+	}
+	public Integer getNumeroChambre() {
+		return numeroChambre;
+	}
+	public void setNumeroChambre(Integer numeroChambre) {
+		this.numeroChambre = numeroChambre;
 	}
 	
 

@@ -26,8 +26,8 @@ public class Suite extends Chambre {
 	public Suite() {
 		super();
 	}
-	public Suite(Integer etage) {
-		super(etage);
+	public Suite(Integer numeroChambre, Integer etage) {
+		super(numeroChambre, etage);
 	}
 	public Suite(Integer nombrePiece, Double surface, Double prix,
 			Integer nombreLit) {

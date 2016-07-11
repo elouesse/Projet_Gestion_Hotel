@@ -26,8 +26,8 @@ public class ChambreSimple extends Chambre {
 	public ChambreSimple() {
 		super();
 	}
-	public ChambreSimple(Integer etage) {
-		super(etage);
+	public ChambreSimple(Integer numeroChambre, Integer etage) {
+		super(numeroChambre, etage);
 	}
 	public ChambreSimple(Integer nombrePiece, Double surface, Double prix,
 			Integer nombreLit) {
