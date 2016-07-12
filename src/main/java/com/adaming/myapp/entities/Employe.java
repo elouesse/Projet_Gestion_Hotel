@@ -6,7 +6,10 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 /**
  * Nom Classe: Employe
@@ -17,6 +20,8 @@ import javax.persistence.Entity;
  */
 
 @Entity
+@DiscriminatorValue("Employe")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public abstract class Employe extends Personne {
 
 	// Attributes

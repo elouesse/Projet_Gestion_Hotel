@@ -5,6 +5,7 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -16,6 +17,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
+@DiscriminatorValue("Contractuel")
 public class Contractuel extends Employe {
 
 	// Attributes
