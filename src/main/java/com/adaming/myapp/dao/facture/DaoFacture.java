@@ -7,8 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.adaming.myapp.entities.Client;
 import com.adaming.myapp.entities.Facture;
 import com.adaming.myapp.entities.Hotel;
+import com.adaming.myapp.entities.Personne;
 import com.adaming.myapp.entities.Reservation;
 /**
  * Nom Classe: Reservation
@@ -36,13 +38,19 @@ public class DaoFacture implements IdaoFacture {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Facture> getListeDesFacturesParClient(Long idPersonne) {
-		Query query = em.createQuery(" from Facture f");
+		/*Personne p = em.find(Personne.class, idPersonne);
+		Reservation res = em.find(Reservation.class, p);
+		Facture fact = em.find(Facture.class, res);*/
+		Query query = em.createQuery("idFacture,dateFacturation,tva from Reservation r INNER JOIN Facture f ON r.idreservation=f.idreservation where idPersonne =:x");
+		/*FROM utilisateur INNER JOIN commande ON utilisateur.id = commande.utilisateur_id*/
+		query.setParameter("x", idPersonne);	
 		log.info("Pour le client "+idPersonne+", la liste contient "+query.getResultList().size()+" factures");
 		return query.getResultList();
 	}
 	@Override
 	public Double coutAnnuelParClient(Long idPersonne, int annee) {	
 		Double coutAnnuelParClient = null;
+		
 		
 		return coutAnnuelParClient;
 	}
