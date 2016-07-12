@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -33,6 +34,9 @@ public class Facture {
 	//Association
 	@OneToMany
 	private List<Reservation> reserv;
+	
+	@ManyToOne
+	private Hotel hotel;
 
 	// Constructors
 	public Facture() {
@@ -45,8 +49,15 @@ public class Facture {
 	}
 	
 	//Getters and Setters
+	
 	public Long getIdFacture() {
 		return idFacture;
+	}
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	public void setIdFacture(Long idFacture) {
 		this.idFacture = idFacture;
