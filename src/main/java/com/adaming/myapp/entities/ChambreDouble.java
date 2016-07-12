@@ -26,8 +26,8 @@ public class ChambreDouble extends Chambre {
 	public ChambreDouble() {
 		super();
 	}
-	public ChambreDouble(Integer etage) {
-		super(etage);
+	public ChambreDouble(Integer numeroChambre, Integer etage) {
+		super(numeroChambre, etage);
 	}
 	public ChambreDouble(Integer nombrePiece, Double surface, Double prix,
 			Integer nombreLit) {
@@ -69,6 +69,5 @@ public class ChambreDouble extends Chambre {
 	public String toString() {
 		return "ChambreDouble";
 	}
-	
 
 }
