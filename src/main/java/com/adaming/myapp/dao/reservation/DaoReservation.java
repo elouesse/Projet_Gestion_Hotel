@@ -92,11 +92,25 @@ public class DaoReservation implements IdaoReservation {
 		return total;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Consommation> getStockProduit() {
-		Query req = em.createQuery("from Produit p inner join Consommation c on  p.idProduit=c.idProduit");
-		Query req = em.createQuery("from Produit p inner join Consommation c on  p.idProduit=c.idProduit");
-		return null;
+	public List<Produit> getStockProduit() {
+		Query req = em.createQuery("from Produit");
+		List<Produit> ptab = req.getResultList();
+		req = em.createQuery("from Consommation");
+		List<Consommation> ctab = req.getResultList();
+		for(Produit p:ptab)
+		{
+			for(Consommation c:ctab)
+			{
+				if(c.getProduit()==p)
+				{
+					p.setQuantiteProduite(c.getProduit().getQuantiteProduite()-c.getQuantiteConsommee());
+				}
+			}
+		}
+
+		return ptab;
 	}
 
 }

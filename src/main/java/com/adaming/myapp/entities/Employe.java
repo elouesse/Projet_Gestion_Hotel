@@ -6,6 +6,8 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -20,13 +22,14 @@ import javax.persistence.InheritanceType;
  */
 
 @Entity
-@DiscriminatorValue("Employe")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+//@DiscriminatorValue("employe")
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
 public abstract class Employe extends Personne {
 
 	// Attributes
-	private Double salaire;
-	private Date dateEntreService;
+	protected Double salaire;
+	protected Date dateEntreService;
 	
 	
 	// Constructors

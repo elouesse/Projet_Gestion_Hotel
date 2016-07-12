@@ -6,11 +6,15 @@ package com.adaming.myapp.entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -24,18 +28,20 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
 public abstract class Chambre {
 
 	// Attributes
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idChambre;
-	private Integer numeroChambre;
-	private final Double prix =10.0;
-	private final Double surface =10.0;
-	private Integer etage;
-	private final Integer nombrePiece = 1;
-	private final Integer nombreLit = 1;
+	protected Long idChambre;
+	protected Integer numeroChambre;
+	protected Double prix =10.0;
+	protected  Double surface =10.0;
+	protected  Integer etage;
+	protected  Integer nombrePiece = 1;
+	protected  Integer nombreLit = 1;
 
 	//Association
 	@OneToMany(mappedBy="chambre", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
@@ -43,56 +49,29 @@ public abstract class Chambre {
 	@ManyToOne
 	@JoinColumn(name="idHotel")
 	private Hotel hotel;
-	
+
 	// Constructors
 	public Chambre() {
 		super();
 	}
-	public Chambre(Integer numeroChambre, Integer etage) {
+	public Chambre(Integer numeroChambre, Double prix, Double surface,
+			Integer etage, Integer nombrePiece, Integer nombreLit) {
 		super();
 		this.numeroChambre = numeroChambre;
+		this.prix = prix;
+		this.surface = surface;
 		this.etage = etage;
+		this.nombrePiece = nombrePiece;
+		this.nombreLit = nombreLit;
 	}
-	
-	// Getters and Setters
+
+
+
 	public Long getIdChambre() {
 		return idChambre;
 	}
-
 	public void setIdChambre(Long idChambre) {
 		this.idChambre = idChambre;
-	}
-
-	public Integer getEtage() {
-		return etage;
-	}
-
-	public void setEtage(Integer etage) {
-		this.etage = etage;
-	}
-
-	public Integer getNombrePiece() {
-		return nombrePiece;
-	}
-
-	public Integer getNombreLit() {
-		return nombreLit;
-	}
-
-	public List<Reservation> getReserv() {
-		return reserv;
-	}
-
-	public void setReserv(List<Reservation> reserv) {
-		this.reserv = reserv;
-	}
-
-	public Double getPrix() {
-		return prix;
-	}
-
-	public Double getSurface() {
-		return surface;
 	}
 	public Integer getNumeroChambre() {
 		return numeroChambre;
@@ -100,12 +79,39 @@ public abstract class Chambre {
 	public void setNumeroChambre(Integer numeroChambre) {
 		this.numeroChambre = numeroChambre;
 	}
+	public Integer getEtage() {
+		return etage;
+	}
+	public void setEtage(Integer etage) {
+		this.etage = etage;
+	}
+	public List<Reservation> getReserv() {
+		return reserv;
+	}
+	public void setReserv(List<Reservation> reserv) {
+		this.reserv = reserv;
+	}
 	public Hotel getHotel() {
 		return hotel;
 	}
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	
+	public Double getPrix() {
+		return prix;
+	}
+	public Double getSurface() {
+		return surface;
+	}
+	public Integer getNombrePiece() {
+		return nombrePiece;
+	}
+	public Integer getNombreLit() {
+		return nombreLit;
+	}
+
+	// Getters and Setters
+
+
 
 }

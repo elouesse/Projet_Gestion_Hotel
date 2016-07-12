@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -33,9 +34,11 @@ public class Facture {
 	
 	//Association
 	@OneToMany
+	@JoinColumn(name="idReservation")
 	private List<Reservation> reserv;
 	
 	@ManyToOne
+	@JoinColumn(name="idHotel")
 	private Hotel hotel;
 
 	// Constructors

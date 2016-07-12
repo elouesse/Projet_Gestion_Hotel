@@ -17,7 +17,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-@DiscriminatorValue("Contractuel")
+@DiscriminatorValue("contractuel")
 public class Contractuel extends Employe {
 
 	// Attributes

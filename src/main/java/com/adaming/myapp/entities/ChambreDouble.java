@@ -3,6 +3,7 @@
  */
 package com.adaming.myapp.entities;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
@@ -14,56 +15,21 @@ import javax.persistence.Entity;
  */
 
 @Entity
+@DiscriminatorValue("chambredouble")
 public class ChambreDouble extends Chambre {
-	
-	// Attributes
-	private Integer nombrePiece = 2;
-	private Double surface = 20.0;
-	private Double prix = 40.0;
-	private Integer nombreLit = 2;
 	
 	// Constructors
 	public ChambreDouble() {
 		super();
 	}
-	public ChambreDouble(Integer numeroChambre, Integer etage) {
-		super(numeroChambre, etage);
+	public ChambreDouble(Integer numeroChambre, Double prix, Double surface,
+			Integer etage, Integer nombrePiece, Integer nombreLit) {
+		super(numeroChambre, prix, surface, etage, nombrePiece, nombreLit);
 	}
-	public ChambreDouble(Integer nombrePiece, Double surface, Double prix,
-			Integer nombreLit) {
-		super();
-		this.nombrePiece = nombrePiece;
-		this.surface = surface;
-		this.prix = prix;
-		this.nombreLit = nombreLit;
-	}
-	
-	// Getters and Setters
-	public Integer getNombrePiece() {
-		return nombrePiece;
-	}
-	public void setNombrePiece(Integer nombrePiece) {
-		this.nombrePiece = nombrePiece;
-	}
-	public Double getSurface() {
-		return surface;
-	}
-	public void setSurface(Double surface) {
-		this.surface = surface;
-	}
-	public Double getPrix() {
-		return prix;
-	}
-	public void setPrix(Double prix) {
-		this.prix = prix;
-	}
-	public Integer getNombreLit() {
-		return nombreLit;
-	}
-	public void setNombreLit(Integer nombreLit) {
-		this.nombreLit = nombreLit;
-	}
-	
+
+
+
+
 	// toString method
 	@Override
 	public String toString() {

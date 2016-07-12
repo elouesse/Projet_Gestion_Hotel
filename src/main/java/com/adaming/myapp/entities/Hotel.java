@@ -3,13 +3,10 @@
  */
 package com.adaming.myapp.entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 /**
  * Nom Classe: Hotel
@@ -34,14 +31,6 @@ public class Hotel {
 	private String numTel;
 	private String numFax;
 	private String adrMail;
-	
-	//Associations
-	@OneToMany
-	private List<Personne> personne;
-	@OneToMany
-	private List<Chambre> chambre;
-	@OneToMany
-	private List<Facture> facture;
 	
 	//Constructors
 	public Hotel() {
@@ -86,24 +75,6 @@ public class Hotel {
 	}
 	public void setClasseHotel(Integer classeHotel) {
 		this.classeHotel = classeHotel;
-	}
-	public List<Personne> getPersonne() {
-		return personne;
-	}
-	public void setPersonne(List<Personne> personne) {
-		this.personne = personne;
-	}
-	public List<Chambre> getChambre() {
-		return chambre;
-	}
-	public void setChambre(List<Chambre> chambre) {
-		this.chambre = chambre;
-	}
-	public List<Facture> getFacture() {
-		return facture;
-	}
-	public void setFacture(List<Facture> facture) {
-		this.facture = facture;
 	}
 	public String getPays() {
 		return pays;

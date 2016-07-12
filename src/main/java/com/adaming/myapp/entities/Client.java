@@ -5,6 +5,7 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -17,7 +18,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-@DiscriminatorValue("Client")
+//@DiscriminatorValue("client")
 public class Client extends Personne {
 
 	// Attributes

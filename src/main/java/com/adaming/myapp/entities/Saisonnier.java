@@ -17,7 +17,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-@DiscriminatorValue("Saisonnier")
+@DiscriminatorValue("saisonnier")
 public class Saisonnier extends Employe {
 
 	// Attributes

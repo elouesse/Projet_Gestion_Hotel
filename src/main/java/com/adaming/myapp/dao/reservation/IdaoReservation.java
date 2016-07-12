@@ -12,5 +12,5 @@ public interface IdaoReservation {
 	public Reservation updateReservation(Reservation r);
 	public Double getTotalCostReservation(Long idR);
 	public Double getTotalCostReservations();
-	public List<Consommation> getStockProduit();
+	public List<Produit> getStockProduit();
 }

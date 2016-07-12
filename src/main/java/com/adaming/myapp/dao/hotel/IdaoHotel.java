@@ -5,6 +5,7 @@ import java.util.List;
 import com.adaming.myapp.entities.Client;
 import com.adaming.myapp.entities.Employe;
 import com.adaming.myapp.entities.Hotel;
+import com.adaming.myapp.entities.Personne;
 
 /**
  * Nom Classe: Idaoproduit
@@ -16,7 +17,7 @@ import com.adaming.myapp.entities.Hotel;
 public interface IdaoHotel {
 	
 	public Hotel addHotel(Hotel h);
-	public List<Employe> getListeDesEmployes(Long idHotel);
-	public List<Client> getListeDesClients(Long idHotel);
+	public List<Personne> getListeDesEmployes(Long idHotel);
+	public List<Personne> getListeDesClients(Long idHotel);
 
 }

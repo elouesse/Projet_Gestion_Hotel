@@ -5,6 +5,8 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,24 +25,25 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+//@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
 public abstract class Personne {
 
 	// Attributes
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idPersonne;
-	private String nomPersonne;
-	private String prenomPersonne;
-	private Date dateDeNaissance;
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	protected Long idPersonne;
+	protected String nomPersonne;
+	protected String prenomPersonne;
+	protected Date dateDeNaissance;
 	private String adrPersonne;
-	private String adrEmail;
-	private String numeroTelephone;
+	protected String adrEmail;
+	protected String numeroTelephone;
 
 	//Association
 	@ManyToOne
 	@JoinColumn(name="idHotel")
-	private Hotel hotel;
+	protected Hotel hotel;
 
 
 	// Constructors
