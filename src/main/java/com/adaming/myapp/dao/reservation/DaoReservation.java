@@ -18,13 +18,14 @@ public class DaoReservation implements IdaoReservation {
 	@Override
 	public Reservation addReservation(Reservation r, Long idC, Long idCh,
 			Long idP) {
-		Personne c = em.find(Personne.class, idC);
-		r.setPersonne(c);
+		Personne client = em.find(Personne.class, idC);
+		r.setPersonne(client);
 		Chambre ch = em.find(Chambre.class, idCh);
 		r.setChambre(ch);
 		Produit p = em.find(Produit.class, idP);
 		Consommation co = new Consommation(1);
 		co.setProduit(p);
+		co.getPersonne().add(client);
 		r.getConsom().add(co);
 		em.persist(r);
 		log.info("La reservation " + r.getIdReservation()
@@ -59,19 +60,41 @@ public class DaoReservation implements IdaoReservation {
 
 	@Override
 	public Double getTotalCostReservation(Long idR) {
-		Double 
-		return null;
+		Reservation r = em.find(Reservation.class, idR);
+		Double total = r.getChambre().getPrix();
+		for(Consommation co:r.getConsom())
+		{
+			for(int i=0;i<co.getQuantiteConsommee();i++)
+			{
+				total=co.getProduit().getPrixProduit()+total;
+			}
+		}
+		return total;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Double getTotalCostReservations() {
-		// TODO Auto-generated method stub
-		return null;
+		Query req = em.createQuery("from Reservation");
+		List<Reservation> tab = req.getResultList();
+		Double total = 0.0;
+		for(Reservation r:tab)
+		{
+			total = r.getChambre().getPrix()+total;
+			for(Consommation co:r.getConsom())
+			{
+				for(int i=0;i<co.getQuantiteConsommee();i++)
+				{
+					total=co.getProduit().getPrixProduit()+total;
+				}
+			}
+		}
+		return total;
 	}
 
 	@Override
 	public List<Consommation> getStockProduit() {
-		// TODO Auto-generated method stub
+		Query req = em.createQuery("from Consommation inner join ");
 		return null;
 	}
 

@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.adaming.myapp.dao.chambre.IdaoChambre;
 import com.adaming.myapp.entities.Chambre;
 
+
 @Transactional
 public class ServiceChambre implements IserviceChambre {
-	
+
 	private IdaoChambre dao;
 	Logger log = Logger.getLogger("ServiceChambre");
 	
@@ -48,6 +49,5 @@ public class ServiceChambre implements IserviceChambre {
 	public List<Chambre> getDispoChambres() {
 		return dao.getDispoChambres();
 	}
-	
 
 }

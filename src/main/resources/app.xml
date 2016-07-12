@@ -12,34 +12,34 @@
 	<bean id="servicePersonne" class="com.adaming.myapp.service.person.ServicePersonne">
 	<property name="dao" ref="daoPersonne"></property>
 	</bean>
-	<bean id="daoChambre" class="com.adaming.myapp.dao.chambre.DaoChambre"></bean>
-	<bean id="serviceChambre" class="com.adaming.myapp.service.chambre.ServiceChambre">
-	<property name="dao" ref="daoChambre"></property>
-	</bean>
-	<bean id="daoConsommation" class="com.adaming.myapp.dao.consommation.DaoConsommation"></bean>
-	<bean id="serviceConsommation" class="com.adaming.myapp.service.consommation.ServiceConsommation">
-	<property name="dao" ref="daoConsommation"></property>
-	</bean>
-	<bean id="daoFacture" class="com.adaming.myapp.dao.facture.DaoFacture"></bean>
-	<bean id="serviceFacture" class="com.adaming.myapp.service.facture.ServiceFacture">
-	<property name="dao" ref="daoFacture"></property>
-	</bean>
-	<bean id="daoHotel" class="com.adaming.myapp.dao.hotel.DaoHotel"></bean>
-	<bean id="serviceHotel" class="com.adaming.myapp.service.hotel.ServiceHotel">
-	<property name="dao" ref="daoHotel"></property>
-	</bean>
-	<bean id="daoPaiement" class="com.adaming.myapp.dao.paiement.DaoPaiement"></bean>
-	<bean id="servicePaiement" class="com.adaming.myapp.service.paiement.ServicePaiement">
-	<property name="dao" ref="daoPaiement"></property>
-	</bean>
-	<bean id="daoProduit" class="com.adaming.myapp.dao.produit.DaoProduit"></bean>
-	<bean id="serviceProduit" class="com.adaming.myapp.service.produit.ServiceProduit">
-	<property name="dao" ref="daoProduit"></property>
-	</bean>
-	<bean id="daoReservation" class="com.adaming.myapp.dao.reservation.DaoReservation"></bean>
-	<bean id="serviceReservation" class="com.adaming.myapp.service.reservation.ServiceReservation">
-	<property name="dao" ref="daoReservation"></property>
-	</bean>
+<!-- 	<bean id="daoChambre" class="com.adaming.myapp.dao.chambre.DaoChambre"></bean> -->
+<!-- 	<bean id="serviceChambre" class="com.adaming.myapp.service.chambre.ServiceChambre"> -->
+<!-- 	<property name="dao" ref="daoChambre"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoConsommation" class="com.adaming.myapp.dao.consommation.DaoConsommation"></bean> -->
+<!-- 	<bean id="serviceConsommation" class="com.adaming.myapp.service.consommation.ServiceConsommation"> -->
+<!-- 	<property name="dao" ref="daoConsommation"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoFacture" class="com.adaming.myapp.dao.facture.DaoFacture"></bean> -->
+<!-- 	<bean id="serviceFacture" class="com.adaming.myapp.service.facture.ServiceFacture"> -->
+<!-- 	<property name="dao" ref="daoFacture"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoHotel" class="com.adaming.myapp.dao.hotel.DaoHotel"></bean> -->
+<!-- 	<bean id="serviceHotel" class="com.adaming.myapp.service.hotel.ServiceHotel"> -->
+<!-- 	<property name="dao" ref="daoHotel"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoPaiement" class="com.adaming.myapp.dao.paiement.DaoPaiement"></bean> -->
+<!-- 	<bean id="servicePaiement" class="com.adaming.myapp.service.paiement.ServicePaiement"> -->
+<!-- 	<property name="dao" ref="daoPaiement"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoProduit" class="com.adaming.myapp.dao.produit.DaoProduit"></bean> -->
+<!-- 	<bean id="serviceProduit" class="com.adaming.myapp.service.produit.ServiceProduit"> -->
+<!-- 	<property name="dao" ref="daoProduit"></property> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="daoReservation" class="com.adaming.myapp.dao.reservation.DaoReservation"></bean> -->
+<!-- 	<bean id="serviceReservation" class="com.adaming.myapp.service.reservation.ServiceReservation"> -->
+<!-- 	<property name="dao" ref="daoReservation"></property> -->
+<!-- 	</bean> -->
 	
 	
 	<bean id="datasource"
@@ -64,7 +64,7 @@
 	<bean id="EntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitManager" ref="PersistenceUnitManager"></property>
-		<property name="persistenceUnitName" value="GestHot"></property>
+		<property name="persistenceUnitName" value="TEST"></property>
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

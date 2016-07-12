@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -21,7 +22,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public abstract class Personne {
-	
+
 	// Attributes
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -32,8 +33,13 @@ public abstract class Personne {
 	private String adrPersonne;
 	private String adrEmail;
 	private String numeroTelephone;
-	
-	
+
+	//Association
+	@ManyToOne
+	@JoinColumn(name="idHotel")
+	private Hotel hotel;
+
+
 	// Constructors
 	public Personne() {
 		super();
@@ -49,11 +55,7 @@ public abstract class Personne {
 		this.adrEmail = adrEmail;
 		this.numeroTelephone = numeroTelephone;
 	}
-	
-	//Association
-	@ManyToOne
-	private Hotel hotel;
-	
+
 	//Getters and Setters
 	public Long getIdPersonne() {
 		return idPersonne;
@@ -103,6 +105,6 @@ public abstract class Personne {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	
+
 
 }
