@@ -16,17 +16,11 @@ public class DaoReservation implements IdaoReservation {
 	private EntityManager em;
 
 	@Override
-	public Reservation addReservation(Reservation r, Long idC, Long idCh,
-			Long idP) {
+	public Reservation addReservation(Reservation r, Long idC, Long idCh) {
 		Personne client = em.find(Personne.class, idC);
 		r.setPersonne(client);
 		Chambre ch = em.find(Chambre.class, idCh);
 		r.setChambre(ch);
-		Produit p = em.find(Produit.class, idP);
-		Consommation co = new Consommation(1);
-		co.setProduit(p);
-		co.getPersonne().add(client);
-		r.getConsom().add(co);
 		em.persist(r);
 		log.info("La reservation " + r.getIdReservation()
 				+ " a bien ete enregistre .");
@@ -111,6 +105,23 @@ public class DaoReservation implements IdaoReservation {
 		}
 
 		return ptab;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Reservation> getReservationParResa(Long idR) {
+		Query req = em.createQuery("from Reservation where idReservation=:idR");
+		req.setParameter("idR", idR);
+		log.info("La réservation " +idR+ " a bien été récupéré!");
+		return req.getResultList();
+	}
+
+	@Override
+	public List<Reservation> getReservationParChambre(Long idCh) {
+		Query req = em.createQuery("from Reservation where idChambre=:idCh");
+		req.setParameter("idCh", idCh);
+		log.info("La réservation de la chambre " +idCh+ " a bien été récupéré! et il y a "+req.getResultList().size()+" réservation sur cette chambre!");
+		return req.getResultList();
 	}
 
 }
