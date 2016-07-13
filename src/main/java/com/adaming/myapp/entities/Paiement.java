@@ -31,8 +31,8 @@ public abstract class Paiement {
 	// Attributes
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long idPaiement;
-	private Date datePaiement;
+	protected Long idPaiement;
+	protected Date datePaiement;
 	
 	//Association
 	@OneToOne
