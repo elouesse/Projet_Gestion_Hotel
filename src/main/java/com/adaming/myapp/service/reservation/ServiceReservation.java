@@ -22,9 +22,8 @@ public class ServiceReservation implements IserviceReservation {
 	}
 
 	@Override
-	public Reservation addReservation(Reservation r, Long idC, Long idCh,
-			Long idP) {
-		return dao.addReservation(r, idC, idCh, idP);
+	public Reservation addReservation(Reservation r, Long idC, Long idCh) {
+		return dao.addReservation(r, idC, idCh);
 	}
 
 	@Override
@@ -55,6 +54,16 @@ public class ServiceReservation implements IserviceReservation {
 	@Override
 	public List<Produit> getStockProduit() {
 		return dao.getStockProduit();
+	}
+
+	@Override
+	public List<Reservation> getReservationParResa(Long idR) {
+		return dao.getReservationParResa(idR);
+	}
+
+	@Override
+	public List<Reservation> getReservationParChambre(Long idCh) {
+		return dao.getReservationParChambre(idCh);
 	}
 
 }
