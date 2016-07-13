@@ -22,13 +22,13 @@ import javax.persistence.InheritanceType;
  */
 
 @Entity
-//@DiscriminatorValue("employe")
-@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorValue("employe")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
 public abstract class Employe extends Personne {
 
 	// Attributes
-	protected Double salaire;
+	protected Double salaire; // PROTECTED OR PRIVATE
 	protected Date dateEntreService;
 	
 	
@@ -38,15 +38,13 @@ public abstract class Employe extends Personne {
 	}
 	public Employe(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
-			String numeroTelephone) {
+			String numeroTelephone,Double salaire, Date dateEntreService) {
 		super(nomPersonne, prenomPersonne, dateDeNaissance, adrPersonne, adrEmail,
 				numeroTelephone);
-	}
-	public Employe(Double salaire, Date dateEntreService) {
-		super();
 		this.salaire = salaire;
 		this.dateEntreService = dateEntreService;
 	}
+
 	
 	
 	// Getters and Setters

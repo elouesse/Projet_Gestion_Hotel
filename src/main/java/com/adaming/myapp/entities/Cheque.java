@@ -24,21 +24,23 @@ public class Cheque extends Paiement {
 	private String numeroCheque;
 
 	//Constructors
+
 	public Cheque() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Cheque(Date datePaiement) {
+	public Cheque(Date datePaiement,String numeroCheque) {
 		super(datePaiement);
-	}
-	public Cheque(String numeroCheque) {
-		super();
 		this.numeroCheque = numeroCheque;
 	}
 	
 	//Getters and Setters
+	
+	
 	public String getNumeroCheque() {
 		return numeroCheque;
 	}
+	
 	public void setNumeroCheque(String numeroCheque) {
 		this.numeroCheque = numeroCheque;
 	}
@@ -48,6 +50,7 @@ public class Cheque extends Paiement {
 	public String toString() {
 		return "Cheque";
 	}
+	
 	
 	
 

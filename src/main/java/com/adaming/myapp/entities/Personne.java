@@ -25,8 +25,8 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE) //Un seul tableau personne !
+@DiscriminatorColumn(name="TYPE_PERSONNE",discriminatorType = DiscriminatorType.STRING) // Pour différencier client saisonnier et contractuel
 public abstract class Personne {
 
 	// Attributes
@@ -36,7 +36,7 @@ public abstract class Personne {
 	protected String nomPersonne;
 	protected String prenomPersonne;
 	protected Date dateDeNaissance;
-	private String adrPersonne;
+	protected String adrPersonne;
 	protected String adrEmail;
 	protected String numeroTelephone;
 

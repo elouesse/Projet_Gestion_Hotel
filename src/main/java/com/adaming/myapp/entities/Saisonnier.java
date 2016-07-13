@@ -28,20 +28,15 @@ public class Saisonnier extends Employe {
 	public Saisonnier() {
 		super();
 	}
-	public Saisonnier(Double salaire, Date dateEntreService) {
-		super(salaire, dateEntreService);
-	}
+	
 	public Saisonnier(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
-			String numeroTelephone) {
+			String numeroTelephone, Double salaire, Date dateEntreService,Date dateSortieService) {
 		super(nomPersonne, prenomPersonne, dateDeNaissance, adrPersonne, adrEmail,
-				numeroTelephone);
-	}
-	public Saisonnier(Date dateSortieService) {
-		super();
+				numeroTelephone, salaire, dateEntreService);
 		this.dateSortieService = dateSortieService;
-	}
 
+	}
 
 	// Getters and Setters
 	public Date getDateSortieService() {

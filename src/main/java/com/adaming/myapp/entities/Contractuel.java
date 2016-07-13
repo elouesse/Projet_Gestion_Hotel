@@ -28,17 +28,12 @@ public class Contractuel extends Employe {
 	public Contractuel() {
 		super();
 	}
-	public Contractuel(Double salaire, Date dateEntreService) {
-		super(salaire, dateEntreService);
-	}
+	
 	public Contractuel(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
-			String numeroTelephone) {
+			String numeroTelephone, Double salaire, Date dateEntreService,Double prime) {
 		super(nomPersonne, prenomPersonne, dateDeNaissance, adrPersonne, adrEmail,
-				numeroTelephone);
-	}
-	public Contractuel(Double prime) {
-		super();
+				numeroTelephone, salaire, dateEntreService);
 		this.prime = prime;
 	}
 

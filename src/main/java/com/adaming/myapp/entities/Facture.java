@@ -34,7 +34,7 @@ public class Facture {
 	
 	//Association
 	@OneToMany
-	@JoinColumn(name="idReservation")
+	@JoinColumn(name="ID_Res")
 	private List<Reservation> reserv;
 	
 	@ManyToOne

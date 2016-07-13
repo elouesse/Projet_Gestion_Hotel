@@ -44,7 +44,7 @@ public abstract class Chambre {
 	protected  Integer nombreLit = 1;
 
 	//Association
-	@OneToMany(mappedBy="chambre", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="chambre", fetch=FetchType.EAGER)
 	private List<Reservation> reserv;
 	@ManyToOne
 	@JoinColumn(name="idHotel")
@@ -84,12 +84,6 @@ public abstract class Chambre {
 	}
 	public void setEtage(Integer etage) {
 		this.etage = etage;
-	}
-	public List<Reservation> getReserv() {
-		return reserv;
-	}
-	public void setReserv(List<Reservation> reserv) {
-		this.reserv = reserv;
 	}
 	public Hotel getHotel() {
 		return hotel;

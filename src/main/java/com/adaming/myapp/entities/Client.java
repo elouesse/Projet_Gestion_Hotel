@@ -18,7 +18,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-//@DiscriminatorValue("client")
+@DiscriminatorValue("client")
 public class Client extends Personne {
 
 	// Attributes
@@ -32,17 +32,15 @@ public class Client extends Personne {
 	}
 	public Client(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
-			String numeroTelephone) {
+			String numeroTelephone,Date dateInscription, Double reduction,
+			Integer nombreReservation) {
 		super(nomPersonne, prenomPersonne, dateDeNaissance, adrPersonne, adrEmail,
 				numeroTelephone);
-	}
-	public Client(Date dateInscription, Double reduction,
-			Integer nombreReservation) {
-		super();
 		this.dateInscription = dateInscription;
 		this.reduction = reduction;
 		this.nombreReservation = nombreReservation;
 	}
+
 	
 	// Getters and Setters
 	public Date getDateInscription() {

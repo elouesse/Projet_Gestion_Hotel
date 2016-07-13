@@ -25,17 +25,22 @@ public class Carte extends Paiement {
 	private String numeroCarte;
 	
 	//Constructors
+	
 	public Carte() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Carte(Date datePaiement) {
+	public Carte(Date datePaiement,String typeCarte, String numeroCarte) {
 		super(datePaiement);
+		this.typeCarte = typeCarte;
+		this.numeroCarte = numeroCarte;
 	}
 	
 	// Getters and Setters
 	public String getTypeCarte() {
 		return typeCarte;
 	}
+	
 	public void setTypeCarte(String typeCarte) {
 		this.typeCarte = typeCarte;
 	}

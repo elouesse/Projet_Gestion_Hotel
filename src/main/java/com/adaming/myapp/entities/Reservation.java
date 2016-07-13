@@ -6,6 +6,7 @@ package com.adaming.myapp.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+
 
 /**
  * Nom Classe: Reservation
@@ -33,10 +36,10 @@ public class Reservation {
 	private Date dateSortie;
 
 	//Associations
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idPersonne")
 	private Personne personne;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="idChambre")
 	private Chambre chambre;
 	@OneToMany
