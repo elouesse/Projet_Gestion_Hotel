@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import com.adaming.myapp.entities.Chambre;
 import com.adaming.myapp.entities.Hotel;
+import com.adaming.myapp.entities.Reservation;
 
 public class DaoChambre implements IdaoChambre {
 
@@ -59,10 +60,23 @@ public class DaoChambre implements IdaoChambre {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Chambre> getDispoChambres() {
-		Query req = em.createQuery("from Chambre where reserv is null");
-		log.info("Il existe une liste de " + req.getResultList().size()
-				+ " de Chambres disponibles");
-		return req.getResultList();
+		Query req1 = em.createQuery("from Chambre");
+		Query req2 = em.createQuery("from Reservation");
+		List<Chambre> tab = req1.getResultList();
+		List<Reservation> itab = req2.getResultList();
+		for(int j=0;j<tab.size();j++)
+		{
+			for(int i=0;i<itab.size();i++)
+			{
+				if(itab.get(i).getChambre()==tab.get(j))
+				{
+					tab.remove(j);
+				}
+			}
+		}
+		log.info("Il existe une liste de " + tab.size()
+				+ " Chambres disponibles");
+		return tab;
 	}
 
 }
