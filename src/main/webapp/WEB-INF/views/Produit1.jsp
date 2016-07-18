@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Accueil Hotel</title>
+<title>Ajouter un produit</title>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
    
@@ -33,7 +33,7 @@
 
 </head>
 <style>
-<%@include file="../../resources/css/style.css"%>
+<%@include file="../../../resources/css/style.css"%>
 </style>
 
 </head>
@@ -183,6 +183,88 @@
 </nav>
 
 <p> Heyyyyyyyyyy</p>
+
+<f:form modelAttribute="modelProduit" action="addProduit" method="POST">
+		<table>
+		<!-- 	<tr>
+				<th>Prix</th>
+				<th>Nom</th>
+				<th>Référence</th>
+				<th>Quantité</th>
+			</tr> -->
+			<tr>
+				<td>Prix :</td>
+				<td><f:input type ="text" path="prixProduit" class="form-control"/></td>
+				<td><f:errors path="prixProduit"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Nom :</td>
+				<td><f:input type ="text" path="nomProduit"/></td>
+				<td><f:errors path="nomProduit"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Référence :</td>
+				<td><f:input type ="text" path="referenceProduit"/></td>
+				<td><f:errors path="referenceProduit"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Quantité :</td>
+				<td><f:input type ="date" path="quantiteProduite"/></td>
+				<td><f:errors path="quantiteProduite"></f:errors></td>
+			</tr>
+			<tr>
+				<td><f:input type ="submit" value="save" path="" class="btn btn-default"/></td>
+			</tr>
+		</table>
+	</f:form>
+
+	<div class="container">
+		<h2>Contextual Classes</h2>
+		<p>Contextual classes can be used to color table rows or table
+			cells. The classes that can be used are: .active, .success, .info,
+			.warning, and .danger.</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="success">
+					<td>John</td>
+					<td>Doe</td>
+					<td>john@example.com</td>
+				</tr>
+				<tr class="info">
+					<td>Mary</td>
+					<td>Moe</td>
+					<td>mary@example.com</td>
+				</tr>
+				<tr class="info">
+					<td>July</td>
+					<td>Dooley</td>
+					<td>july@example.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	
+		<div class="form-group">
+			<label for="email">Email address:</label> <input type="email"
+				class="form-control" id="email">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label> <input type="password"
+				class="form-control" id="pwd">
+		</div>
+		<div class="checkbox">
+			<label><input type="checkbox"> Remember me</label>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+
 
 
 </body>
