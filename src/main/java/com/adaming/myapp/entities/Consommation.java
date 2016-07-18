@@ -5,6 +5,7 @@ package com.adaming.myapp.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,9 @@ public class Consommation {
 	@ManyToOne
 	@JoinColumn(name="idProduit")
 	private Produit produit;
+	@ManyToOne
+	@JoinColumn(name="idReservation")
+	private Reservation reserv;
 	@OneToMany
 	private List<Personne> personne;
 
@@ -75,6 +79,12 @@ public class Consommation {
 	}
 	public void setPersonne(List<Personne> personne) {
 		this.personne = personne;
+	}
+	public Reservation getReserv() {
+		return reserv;
+	}
+	public void setReserv(Reservation reserv) {
+		this.reserv = reserv;
 	}
 
 

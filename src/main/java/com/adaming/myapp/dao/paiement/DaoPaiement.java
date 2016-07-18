@@ -30,7 +30,7 @@ public class DaoPaiement implements IdaoPaiement {
 		Facture f = em.find(Facture.class, idFacture);
 		p.setFacture(f);
 		em.persist(p);
-		log.info("Le paiement "+p.getIdPaiement()+" a été pris en compte pour la facture"+f.getIdFacture());
+		log.info("Le paiement"+p.getIdPaiement()+" a été pris en compte pour la facture "+idFacture);//"+p.getDatePaiement()+"
 		return p;
 	}
 	

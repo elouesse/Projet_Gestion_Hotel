@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import com.adaming.myapp.entities.Client;
 import com.adaming.myapp.entities.Employe;
 import com.adaming.myapp.entities.Hotel;
+import com.adaming.myapp.entities.Personne;
 
 /**
  * Nom Classe: Idaoproduit
@@ -34,19 +35,20 @@ public class DaoHotel implements IdaoHotel {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Employe> getListeDesEmployes(Long idHotel) {
-		Query query = em.createQuery(" from Employe e  where personne p"); // Requete!!!!
+	public List<Personne> getListeDesEmployes(Long idHotel) {
+		Query query = em.createQuery(" from Personne p where idHotel=:x and TYPE_PERSONNE ='saisonnier' or TYPE_PERSONNE ='contractuel' " );// Requete!!!!
+		query.setParameter("x", idHotel);
 		log.info("L'hôtel " + idHotel + " contient "
 				+ query.getResultList().size() + " employés!");
 		return query.getResultList();
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Client> getListeDesClients(Long idHotel) {
-		Query query = em.createQuery(" from Client ");
-		log.info("L'hôtel " + idHotel + " contient"
-				+ query.getResultList().size() + " clients!");
+	public List<Personne> getListeDesClients(Long idHotel) {
+		Query query = em.createQuery(" from Personne p where idHotel=:x and TYPE_PERSONNE ='client' ");
+		query.setParameter("x", idHotel);
+		log.info("L'hôtel " + idHotel + " contient"	+ query.getResultList().size() + " clients!");
 		return query.getResultList();
 	}
 

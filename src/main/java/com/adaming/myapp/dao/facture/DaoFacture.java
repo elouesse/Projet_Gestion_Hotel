@@ -22,13 +22,17 @@ import com.adaming.myapp.entities.Reservation;
 
 public class DaoFacture implements IdaoFacture {
 	
+	
 	Logger log = Logger.getLogger("DaoChambre");
 	@PersistenceContext
 	private EntityManager em;
+	
+	private List<Reservation> tab;
 	@Override
 	public Facture addFacture(Facture f,Long idReservation, Long idHotel) {
 		Reservation r = em.find(Reservation.class, idReservation);
 		Hotel h = em.find(Hotel.class, idHotel);
+		f.setReserv(tab);
 		f.getReserv().add(r);
 		f.setHotel(h);
 		em.persist(f);

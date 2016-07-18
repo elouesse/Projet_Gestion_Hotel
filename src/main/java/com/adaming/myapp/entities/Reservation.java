@@ -36,10 +36,10 @@ public class Reservation {
 	private Date dateSortie;
 
 	//Associations
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="idPersonne")
 	private Personne personne;
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="idChambre")
 	private Chambre chambre;
 	@OneToMany
