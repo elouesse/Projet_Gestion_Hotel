@@ -142,15 +142,15 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produit <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter un produit</a></li>
+            <li><a href="Produit1">Ajouter un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier un produit</a></li>
+            <li><a href="Produit2">Modifier un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer un produit</a></li>
+            <li><a href="Produit3">Supprimer un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des produits</a></li> 
+            <li><a href="Produit4">La liste des produits</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher un produit</a></li>           
+            <li><a href="Produit5">Chercher un produit</a></li>           
           </ul>
         </li>
       </ul>
@@ -199,23 +199,23 @@
 			</tr>
 			<tr>
 				<td>Nom :</td>
-				<td><f:input type ="text" path="nomProduit"/></td>
+				<td><f:input type ="text" path="nomProduit" class="form-control"/></td>
 				<td><f:errors path="nomProduit"></f:errors></td>
 			</tr>
 			<tr>
 				<td>Référence :</td>
-				<td><f:input type ="text" path="referenceProduit"/></td>
+				<td><f:input type ="text" path="referenceProduit" class="form-control"/></td>
 				<td><f:errors path="referenceProduit"></f:errors></td>
 			</tr>
 			<tr>
 				<td>Quantité :</td>
-				<td><f:input type ="date" path="quantiteProduite"/></td>
+				<td><f:input type ="date" path="quantiteProduite" class="form-control"/></td>
 				<td><f:errors path="quantiteProduite"></f:errors></td>
 			</tr>
-			<tr>
+			</table>
+				<br>
 				<td><f:input type ="submit" value="save" path="" class="btn btn-default"/></td>
-			</tr>
-		</table>
+		
 	</f:form>
 
 	<div class="container">
