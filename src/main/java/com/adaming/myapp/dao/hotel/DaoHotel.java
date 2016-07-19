@@ -52,4 +52,12 @@ public class DaoHotel implements IdaoHotel {
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Hotel> getListeDesHotels() {
+		Query query = em.createQuery("from Hotel");
+		log.info("La liste des hôtels a été récupéré et contient: "+query.getResultList().size()+" hôtels !");
+		return query.getResultList();
+	}
+
 }

@@ -19,5 +19,6 @@ public interface IdaoHotel {
 	public Hotel addHotel(Hotel h);
 	public List<Personne> getListeDesEmployes(Long idHotel);
 	public List<Personne> getListeDesClients(Long idHotel);
+	public List<Hotel> getListeDesHotels();
 
 }
