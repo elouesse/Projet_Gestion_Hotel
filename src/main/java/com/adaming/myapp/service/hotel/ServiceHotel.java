@@ -42,4 +42,9 @@ public class ServiceHotel implements IserviceHotel {
 		return dao.getListeDesClients(idHotel);
 	}
 
+	@Override
+	public List<Hotel> getListeDesHotels() {
+		return dao.getListeDesHotels();
+	}
+
 }
