@@ -1,10 +1,14 @@
 package com.adaming.myapp.model;
 
+import java.util.List;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.adaming.myapp.entities.Produit;
 
 public class ProduitModel {
 	
@@ -21,7 +25,25 @@ public class ProduitModel {
 	@NotNull(message="Veuillez entrez la quantité !")
 	private Integer quantiteProduite;
 	
+	
+	List<Produit> listeProduit;
+	List<Produit> listeP;
+	
+	
 	// Getters and Setters
+	public List<Produit> getListeP() {
+		return listeP;
+	}
+	public void setListeP(List<Produit> listeP) {
+		this.listeP = listeP;
+	}
+	public List<Produit> getListeProduit() {
+		return listeProduit;
+	}
+	public void setListeProduit(List<Produit> listeProduit) {
+		this.listeProduit = listeProduit;
+	}
+	
 	public Double getPrixProduit() {
 		return prixProduit;
 	}
