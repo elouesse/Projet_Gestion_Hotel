@@ -7,8 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.adaming.myapp.entities.Client;
-import com.adaming.myapp.entities.Employe;
 import com.adaming.myapp.entities.Hotel;
 import com.adaming.myapp.entities.Personne;
 
@@ -51,12 +49,11 @@ public class DaoHotel implements IdaoHotel {
 		log.info("L'hôtel " + idHotel + " contient"	+ query.getResultList().size() + " clients!");
 		return query.getResultList();
 	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Hotel> getListeDesHotels() {
-		Query query = em.createQuery("from Hotel");
-		log.info("La liste des hôtels a été récupéré et contient: "+query.getResultList().size()+" hôtels !");
+		Query query = em.createQuery(" from Hotel");
+		log.info("La liste des hotels a bien tété récupéré et contient "	+ query.getResultList().size() + " hotels!");
 		return query.getResultList();
 	}
 
