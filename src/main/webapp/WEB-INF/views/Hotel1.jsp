@@ -106,9 +106,9 @@
           <ul class="dropdown-menu">
             <li><a href="Hotel1">AJouter un hotel</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href=Hotel2">Les employés d'un hôtel</a></li>
+            <li><a href="Hotel2">Les employés d'un hôtel</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="Hotel3"><li><a href="#">Les clients d'un hôtel</a></li></a></li>            
+            <li><a href="Hotel3">Les clients d'un hôtel</a></li>            
           </ul>
         </li>
       </ul>

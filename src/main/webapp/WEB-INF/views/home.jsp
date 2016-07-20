@@ -33,7 +33,7 @@
 
 </head>
 <style>
-<%@include file="../../resources/css/style.css"%>
+<%@include file="../../../resources/css/style.css"%>
 </style>
 
 </head>
@@ -59,17 +59,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chambre <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une chambre</a></li>
+            <li><a href="Chambre1">Ajouter une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une chambre</a></li>
+            <li><a href="Chambre2">Supprimer une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier une chambre</a></li>
+            <li><a href="Chambre3">Modifier une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Selectionner une chambre</a></li>
+            <li><a href="Chambre4">Selectionner une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des chambres</a></li>
+            <li><a href="Chambre5">La liste des chambres</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des chambres disponibles</a></li>            
+            <li><a href="Chambre6">La liste des chambres disponibles</a></li>            
           </ul>
         </li>
       </ul>
@@ -78,11 +78,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consommation <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une consommation</a></li>
-            <li><a href="#">???</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="Consommation1">Ajouter une consommation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>            
+            <li><a href="Consommation2">Obtenir les consos de produits</a></li>           
           </ul>
         </li>
       </ul>
@@ -90,13 +88,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facture <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une facture</a></li>
+            <li><a href="Facture1">Ajouter une facture</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Trouver les factures d'un client</a></li>
+            <li><a href="Facture2">Trouver les factures d'un client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le coût annuel par client</a></li>
+            <li><a href="Facture3">Le coût annuel par client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le coût semestriel par client</a></li>            
+            <li><a href="Facture4">Le coût semestriel par client</a></li>            
           </ul>
         </li>
       </ul>
@@ -104,11 +102,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hotel <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">AJouter un hotel</a></li>
+            <li><a href="Hotel1">AJouter un hotel</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Les employés d'un hôtel</a></li>
+            <li><a href="Hotel2">Les employés d'un hôtel</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#"><li><a href="#">Les clients d'un hôtel</a></li></a></li>            
+            <li><a href="Hotel3">Les clients d'un hôtel</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="Hotel4">Le bénéfice par année</a></li>             
           </ul>
         </li>
       </ul>
@@ -116,9 +116,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paiement <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter un paiement</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Le bénéfice par année</a></li>            
+            <li><a href="Paiement">Ajouter un paiement</a></li>           
           </ul>
         </li>
       </ul>
@@ -126,15 +124,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personne <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une personne</a></li>
+            <li><a href="Personne1">Ajouter une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une personne</a></li>
+            <li><a href="Personne2">Modifier une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher une personne par son identifiant</a></li>
+            <li><a href="Personne3">Supprimer une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste de toutes les personnes</a></li>
+            <li><a href="Personne4">Chercher une personne par son identifiant</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher des personnes par mot clé</a></li>            
+            <li><a href="Personne5">La liste de toutes les personnes</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="Personne6">Chercher des personnes par mot clé</a></li>            
           </ul>
         </li>
       </ul>
@@ -142,15 +142,15 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produit <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter un produit</a></li>
+            <li><a href="Produit1">Ajouter un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier un produit</a></li>
+            <li><a href="Produit2">Modifier un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer un produit</a></li>
+            <li><a href="Produit3">Supprimer un produit</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des produits</a></li> 
+            <li><a href="Produit4">La liste des produits</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher un produit</a></li>           
+            <li><a href="Produit5">Chercher un produit</a></li>           
           </ul>
         </li>
       </ul>
@@ -158,23 +158,23 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Réservation <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une réservation</a></li>
+            <li><a href="Reservation1">Ajouter une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des réservations par client</a></li>
+            <li><a href="Reservation2">La liste des réservations par client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une réservation</a></li>
+            <li><a href="Reservation3">Supprimer une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier une réservation</a></li>
+            <li><a href="Reservation4">Modifier une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher une réservation</a></li> 
+            <li><a href="Reservation5">Chercher une réservation</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher les réservations d'une chambre</a></li> 
+            <li><a href="Reservation6">Chercher les réservations d'une chambre</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Afficher le coût d'une réservation</a></li> 
+            <li><a href="Reservation7">Afficher le coût d'une réservation</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Afficher le coût de toutes les réservations</a></li> 
+            <li><a href="Reservation8">Afficher le coût de toutes les réservations</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le stock des produits</a></li>             
+            <li><a href="Reservation9">Le stock des produits</a></li>             
           </ul>
         </li>
       </ul>

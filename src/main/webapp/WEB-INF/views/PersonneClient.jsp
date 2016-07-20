@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Liste des employés</title>
+<title>Ajouter client</title>
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
    
@@ -59,17 +59,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chambre <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une chambre</a></li>
+            <li><a href="Chambre1">Ajouter une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une chambre</a></li>
+            <li><a href="Chambre2">Supprimer une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier une chambre</a></li>
+            <li><a href="Chambre3">Modifier une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Selectionner une chambre</a></li>
+            <li><a href="Chambre4">Selectionner une chambre</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des chambres</a></li>
+            <li><a href="Chambre5">La liste des chambres</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des chambres disponibles</a></li>            
+            <li><a href="Chambre6">La liste des chambres disponibles</a></li>            
           </ul>
         </li>
       </ul>
@@ -78,11 +78,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consommation <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une consommation</a></li>
-            <li><a href="#">???</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="Consommation1">Ajouter une consommation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>            
+            <li><a href="Consommation2">Obtenir les consos de produits</a></li>           
           </ul>
         </li>
       </ul>
@@ -90,13 +88,13 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facture <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une facture</a></li>
+            <li><a href="Facture1">Ajouter une facture</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Trouver les factures d'un client</a></li>
+            <li><a href="Facture2">Trouver les factures d'un client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le coût annuel par client</a></li>
+            <li><a href="Facture3">Le coût annuel par client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le coût semestriel par client</a></li>            
+            <li><a href="Facture4">Le coût semestriel par client</a></li>            
           </ul>
         </li>
       </ul>
@@ -108,7 +106,9 @@
             <li role="separator" class="divider"></li>
             <li><a href="Hotel2">Les employés d'un hôtel</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="Hotel3">Les clients d'un hôtel</a></li>    
+            <li><a href="Hotel3">Les clients d'un hôtel</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="Hotel4">Le bénéfice par année</a></li>             
           </ul>
         </li>
       </ul>
@@ -116,9 +116,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paiement <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter un paiement</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Le bénéfice par année</a></li>            
+            <li><a href="Paiement">Ajouter un paiement</a></li>           
           </ul>
         </li>
       </ul>
@@ -126,15 +124,17 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Personne <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une personne</a></li>
+            <li><a href="Personne1">Ajouter une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une personne</a></li>
+            <li><a href="Personne2">Modifier une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher une personne par son identifiant</a></li>
+            <li><a href="Personne3">Supprimer une personne</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste de toutes les personnes</a></li>
+            <li><a href="Personne4">Chercher une personne par son identifiant</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher des personnes par mot clé</a></li>            
+            <li><a href="Personne5">La liste de toutes les personnes</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="Personne6">Chercher des personnes par mot clé</a></li>            
           </ul>
         </li>
       </ul>
@@ -158,23 +158,23 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Réservation <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Ajouter une réservation</a></li>
+            <li><a href="Reservation1">Ajouter une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">La liste des réservations par client</a></li>
+            <li><a href="Reservation2">La liste des réservations par client</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Supprimer une réservation</a></li>
+            <li><a href="Reservation3">Supprimer une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Modifier une réservation</a></li>
+            <li><a href="Reservation4">Modifier une réservation</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher une réservation</a></li> 
+            <li><a href="Reservation5">Chercher une réservation</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Chercher les réservations d'une chambre</a></li> 
+            <li><a href="Reservation6">Chercher les réservations d'une chambre</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Afficher le coût d'une réservation</a></li> 
+            <li><a href="Reservation7">Afficher le coût d'une réservation</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Afficher le coût de toutes les réservations</a></li> 
+            <li><a href="Reservation8">Afficher le coût de toutes les réservations</a></li> 
             <li role="separator" class="divider"></li>
-            <li><a href="#">Le stock des produits</a></li>             
+            <li><a href="Reservation9">Le stock des produits</a></li>             
           </ul>
         </li>
       </ul>
@@ -182,48 +182,126 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-	<form action="getListEmp" method="post">
-<p> Heyyyyyyyyyy</p>
-					<select name="idHotel" >
-						<c:forEach items="${modelHotel.listeDesHotels}" var="h">
-							<option value="${h.idHotel}">${h.idHotel}</option>
-						</c:forEach>
-					</select>
-					
-					<br><br>
-					
-					<button type="submit" class="btn btn-success btn-lg">Recherche employés</button>
+	<br><br>
 
-<table id="tableau" class="table">
-	
-	  <tr class="danger">
-			<th>idPersonne</th>
-			<th>nomPersonne</th>
-			<th>prenomPersonne</th>
-			<th>dateDeNaissance</th>
-			<th>adrPersonne</th>
-			<th>Téléphone</th>
-			<th>Mail</th>
-			<th>Entrée</th>
-			<th>Salaire</th>
+<f:form modelAttribute="modelClient" action="validClient" method="POST">
+		<table>
+			<tr>
+				<td>Nom :</td>
+				<td><f:input type ="text" path="nomPersonne" class="form-control"/></td>
+				<td><f:errors path="nomPersonne"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Prénom :</td>
+				<td><f:input type ="text" path="prenomPersonne" class="form-control"/></td>
+				<td><f:errors path="prenomPersonne"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Date de naissance :</td>
+				<td><f:input type ="date" path="dateDeNaissance" class="form-control"/></td>
+				<td><f:errors path="dateDeNaissance"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Adresse :</td>
+				<td><f:input type ="text" path="adrPersonne" class="form-control"/></td>
+				<td><f:errors path="adrPersonne"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Mail :</td>
+				<td><f:input type ="text" path="adrEmail" class="form-control"/></td>
+				<td><f:errors path="adrEmail"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Téléphone :</td>
+				<td><f:input type ="text" path="numeroTelephone" class="form-control"/></td>
+				<td><f:errors path="numeroTelephone"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Réduction(%) :</td>
+				<td><f:input type ="text" path="reduction" class="form-control"/></td>
+				<td><f:errors path="reduction"></f:errors></td>
+			</tr>
+			<tr>
+				<td>Réservation :</td>
+				<td><f:input type ="text" path="nombreReservation" class="form-control"/></td>
+				<td><f:errors path="nombreReservation"></f:errors></td>
+			</tr>
+			</table>
 			
-		</tr>		
-				<c:forEach items="${modelHotel.listeDesPersonnes}" var="p">
-					<tr class="info">
-						<td>${p.idPersonne}</td>
-						<td>${p.nomPersonne}</td>
-						<td>${p.prenomPersonne}</td>
-						<td>${p.dateDeNaissance}</td>
-						<td>${p.adrPersonne}</td>
-						<td>${p.numeroTelephone}</td>
-						<td>${p.adrEmail}</td>
-						<td>${p.dateEntreService}</td>
-						<td>${p.salaire}</td>
-					</tr>
-				</c:forEach>
-	</table>
+			
+			<br>
+			
+			
+			<select name="idHotel" id="idHotel">
+				<option>Choisir un hotel</option>
+					<c:forEach items="${modelClient.listeDesHotels}" var="h">
+						<option value="${h.idHotel}">${h.idHotel}</option>
+					</c:forEach>
+			</select>
+			
+			<%-- <select name="codeGroupe" id="codeGroupe">
+						<option value="0">Choisir un groupe</option>
+						<c:forEach items="${modelGroupe.groupes}" var="g">
+							<option value="${g.codeGroupe}">${g.nomGroupe}</option>
+						</c:forEach>
+					</select> --%>
+			
+				<br><br>
+				
+				
+				<td><f:input type ="submit" value="save" path="" class="btn btn-default"/></td>
+		
+	</f:form>
+
+	<div class="container">
+		<h2>Contextual Classes</h2>
+		<p>Contextual classes can be used to color table rows or table
+			cells. The classes that can be used are: .active, .success, .info,
+			.warning, and .danger.</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="success">
+					<td>John</td>
+					<td>Doe</td>
+					<td>john@example.com</td>
+				</tr>
+				<tr class="info">
+					<td>Mary</td>
+					<td>Moe</td>
+					<td>mary@example.com</td>
+				</tr>
+				<tr class="info">
+					<td>July</td>
+					<td>Dooley</td>
+					<td>july@example.com</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
 	
-	</form>
+		<div class="form-group">
+			<label for="email">Email address:</label> <input type="email"
+				class="form-control" id="email">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Password:</label> <input type="password"
+				class="form-control" id="pwd">
+		</div>
+		<div class="checkbox">
+			<label><input type="checkbox"> Remember me</label>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+
+
+
 
 
 
