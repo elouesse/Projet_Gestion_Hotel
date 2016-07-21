@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import com.adaming.myapp.entities.Chambre;
 import com.adaming.myapp.entities.Hotel;
 import com.adaming.myapp.entities.Reservation;
+import com.adaming.myapp.exception.ParameterException;
 
 public class DaoChambre implements IdaoChambre {
 
@@ -18,8 +19,12 @@ public class DaoChambre implements IdaoChambre {
 	private EntityManager em;
 
 	@Override
-	public Chambre addChambre(Chambre ch, Long idHotel) {
+	public Chambre addChambre(Chambre ch, Long idHotel) throws ParameterException {
 		Hotel h = em.find(Hotel.class, idHotel);
+		if(h==null)
+		{
+			throw new ParameterException("L'hotel referee n'existe pas.");
+		}
 		ch.setHotel(h);
 		em.persist(ch);
 		log.info("La chambre "+ch.getNumeroChambre() + " a bien ete enregistre dans l'hotel "+h.getNomHotel());
@@ -27,23 +32,35 @@ public class DaoChambre implements IdaoChambre {
 	}
 
 	@Override
-	public Chambre deleteChambre(Long idChambre) {
+	public Chambre deleteChambre(Long idChambre) throws ParameterException {
 		Chambre ch = em.find(Chambre.class, idChambre);
+		if(ch==null)
+		{
+			throw new ParameterException("La chambre referee n'existe pas.");
+		}
 		em.remove(ch);
 		log.info("La chambre "+ch.getNumeroChambre() +" a bien ete supprime.");
 		return ch;
 	}
 
 	@Override
-	public Chambre updateChambre(Chambre ch) {
+	public Chambre updateChambre(Chambre ch) throws ParameterException {
+		if(ch.getIdChambre()==null)
+		{
+			throw new ParameterException("La chambre referee n'existe pas.");
+		}
 		em.merge(ch);
 		log.info("La chambre "+ch.getNumeroChambre()+ " a bien ete modifie.");
 		return ch;
 	}
 
 	@Override
-	public Chambre getChambre(Long idChambre) {
+	public Chambre getChambre(Long idChambre) throws ParameterException {
 		Chambre ch = em.find(Chambre.class, idChambre);
+		if(ch==null)
+		{
+			throw new ParameterException("La chambre referee n'existe pas.");
+		}
 		log.info("La chambre "+ch.getNumeroChambre()+ " a bien ete recupere.");
 		return ch;
 	}

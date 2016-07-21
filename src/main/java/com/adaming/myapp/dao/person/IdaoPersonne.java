@@ -3,6 +3,7 @@ package com.adaming.myapp.dao.person;
 import java.util.List;
 
 import com.adaming.myapp.entities.Personne;
+import com.adaming.myapp.exception.ParameterException;
 
 /**
  * Nom Classe: Idaoproduit
@@ -15,10 +16,10 @@ import com.adaming.myapp.entities.Personne;
 
 public interface IdaoPersonne {
 	
-	public Personne addPersonne(Personne p, Long idHotel);
-	public Personne updatePersonne(Personne p);
-	public Personne deletePersonne(Long id);
-	public Personne getPersonne(Long idPersonne);
+	public Personne addPersonne(Personne p, Long idHotel) throws ParameterException;
+	public Personne updatePersonne(Personne p) throws ParameterException;
+	public Personne deletePersonne(Long id) throws ParameterException;
+	public Personne getPersonne(Long idPersonne) throws ParameterException;
 	public List<Personne> getPersonnes();
 	public List<Personne> getPersonneByMc(String mc);
 	

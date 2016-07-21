@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adaming.myapp.dao.chambre.IdaoChambre;
 import com.adaming.myapp.entities.Chambre;
+import com.adaming.myapp.exception.ParameterException;
 
 
 @Transactional
@@ -21,22 +22,22 @@ public class ServiceChambre implements IserviceChambre {
 	}
 
 	@Override
-	public Chambre addChambre(Chambre ch, Long idHotel) {
+	public Chambre addChambre(Chambre ch, Long idHotel) throws ParameterException {
 		return dao.addChambre(ch, idHotel);
 	}
 
 	@Override
-	public Chambre deleteChambre(Long idChambre) {
+	public Chambre deleteChambre(Long idChambre) throws ParameterException {
 		return dao.deleteChambre(idChambre);
 	}
 
 	@Override
-	public Chambre updateChambre(Chambre ch) {
+	public Chambre updateChambre(Chambre ch) throws ParameterException {
 		return dao.updateChambre(ch);
 	}
 
 	@Override
-	public Chambre getChambre(Long idChambre) {
+	public Chambre getChambre(Long idChambre) throws ParameterException {
 		return dao.getChambre(idChambre);
 	}
 

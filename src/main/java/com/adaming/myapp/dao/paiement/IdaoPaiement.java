@@ -3,6 +3,7 @@ package com.adaming.myapp.dao.paiement;
 import java.util.List;
 
 import com.adaming.myapp.entities.Paiement;
+import com.adaming.myapp.exception.ParameterException;
 
 /**
  * Nom Classe: Idaoproduit
@@ -13,6 +14,7 @@ import com.adaming.myapp.entities.Paiement;
  */
 public interface IdaoPaiement {
 	
-	public Paiement addPaiement(Paiement p, Long idFacture);
+	public Paiement addPaiement(Paiement p, Long idFacture) throws ParameterException;
+	public List<Paiement> getListePaiementParHotel(Long idHotel) throws ParameterException;
 
 }

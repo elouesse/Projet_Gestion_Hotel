@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Saisonnier
@@ -21,6 +23,7 @@ import javax.persistence.Entity;
 public class Saisonnier extends Employe {
 
 	// Attributes
+	@Temporal(TemporalType.DATE)
 	private Date dateSortieService;
 
 
@@ -28,7 +31,6 @@ public class Saisonnier extends Employe {
 	public Saisonnier() {
 		super();
 	}
-	
 	public Saisonnier(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
 			String numeroTelephone, Double salaire, Date dateEntreService,Date dateSortieService) {
@@ -46,8 +48,8 @@ public class Saisonnier extends Employe {
 	public void setDateSortieService(Date dateSortieService) {
 		this.dateSortieService = dateSortieService;
 	}
-	
-	
+
+
 	// toString method
 	@Override
 	public String toString() {

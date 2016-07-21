@@ -6,13 +6,17 @@ package com.adaming.myapp.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Facture
@@ -29,14 +33,13 @@ public class Facture {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idFacture;
+	@Temporal(TemporalType.DATE)
 	private Date dateFacturation;
 	private Double tva;
 	
 	//Association
-	@OneToMany
-	@JoinColumn(name="ID_Res")
+	@OneToMany(mappedBy="facture",fetch=FetchType.EAGER)//,cascade = CascadeType.REMOVE,orphanRemoval=true
 	private List<Reservation> reserv;
-	
 	@ManyToOne
 	@JoinColumn(name="idHotel")
 	private Hotel hotel;
@@ -83,6 +86,5 @@ public class Facture {
 	public void setReserv(List<Reservation> reserv) {
 		this.reserv = reserv;
 	}
-	
 
 }

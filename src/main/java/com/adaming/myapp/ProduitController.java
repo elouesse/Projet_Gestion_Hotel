@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.adaming.myapp.entities.Produit;
+import com.adaming.myapp.exception.ParameterException;
 import com.adaming.myapp.model.ProduitModel;
 import com.adaming.myapp.service.produit.IserviceProduit;
 
@@ -59,7 +60,7 @@ public class ProduitController {
 		return "Produit2";
 	}
 	@RequestMapping(value="/updateProduit", method = RequestMethod.POST)
-	public String updateProduit(ProduitModel pm,Model model, @RequestParam Long idProduit){
+	public String updateProduit(ProduitModel pm,Model model, @RequestParam Long idProduit) throws ParameterException{
 		Produit tabpr = serviceProduit.getProduitParId(idProduit);
 		tabpr.setNomProduit(pm.getNomProduit());
 		tabpr.setPrixProduit(pm.getPrixProduit());
@@ -94,7 +95,7 @@ public class ProduitController {
 		return "Produit5";
 	}
 	@RequestMapping(value="/getProduit", method = RequestMethod.POST)
-	public String getProduitparId(ProduitModel pm, ProduitModel prm , Model model, @RequestParam Long idProduit){
+	public String getProduitparId(ProduitModel pm, ProduitModel prm , Model model, @RequestParam Long idProduit) throws ParameterException{
 		List<Produit> tabpro = serviceProduit.getListeDesProduits();
 		pm.setListeProduit(tabpro);
 		model.addAttribute("modelProduit", pm);
@@ -107,7 +108,7 @@ public class ProduitController {
 		return "Produit5";
 	}
 	@RequestMapping(value="/deleteProduit",method=RequestMethod.POST)
-	public String suprimer(ProduitModel pm,@RequestParam Long idProduit, Model model){
+	public String suprimer(ProduitModel pm,@RequestParam Long idProduit, Model model) throws ParameterException{
 		serviceProduit.deleteProduit(idProduit);
 		model.addAttribute("modelProduit",pm);
 		return "redirect:Produit3";

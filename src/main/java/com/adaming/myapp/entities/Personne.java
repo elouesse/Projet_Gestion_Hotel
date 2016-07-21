@@ -4,10 +4,13 @@
 package com.adaming.myapp.entities;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +18,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Personne
@@ -25,8 +31,8 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE) //Un seul tableau personne !
-@DiscriminatorColumn(name="TYPE_PERSONNE",discriminatorType = DiscriminatorType.STRING) // Pour différencier client saisonnier et contractuel
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_PERSONNE",discriminatorType = DiscriminatorType.STRING)
 public abstract class Personne {
 
 	// Attributes
@@ -35,6 +41,7 @@ public abstract class Personne {
 	protected Long idPersonne;
 	protected String nomPersonne;
 	protected String prenomPersonne;
+	@Temporal(TemporalType.DATE)
 	protected Date dateDeNaissance;
 	protected String adrPersonne;
 	protected String adrEmail;
@@ -44,6 +51,8 @@ public abstract class Personne {
 	@ManyToOne
 	@JoinColumn(name="idHotel")
 	protected Hotel hotel;
+	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.REMOVE,mappedBy="personne",orphanRemoval=true)
+	protected List<Reservation> reserv;
 
 
 	// Constructors
@@ -110,6 +119,13 @@ public abstract class Personne {
 	}
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+	
+	public List<Reservation> getReserv() {
+		return reserv;
+	}
+	public void setReserv(List<Reservation> reserv) {
+		this.reserv = reserv;
 	}
 
 

@@ -7,12 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.adaming.myapp.entities.Client;
-import com.adaming.myapp.entities.Contractuel;
-import com.adaming.myapp.entities.Employe;
 import com.adaming.myapp.entities.Hotel;
 import com.adaming.myapp.entities.Personne;
-import com.adaming.myapp.entities.Saisonnier;
+import com.adaming.myapp.exception.ParameterException;
 
 /**
  * Nom Classe: DaoPersonne
@@ -29,47 +26,48 @@ public class DaoPersonne implements IdaoPersonne {
 	private EntityManager em;
 
 	@Override
-	public Personne addPersonne(Personne p, Long idHotel) {
+	public Personne addPersonne(Personne p, Long idHotel) throws ParameterException {
 		Hotel h = em.find(Hotel.class, idHotel);
+		if(h==null)
+		{
+			throw new ParameterException("L'hotel referee n'existe pas.");
+		}
 		p.setHotel(h);
-		if(Client.class.equals(true))
-		{
-			p = new Client();
-		}
-		else if(Employe.class.equals(true))
-		{
-			if(Contractuel.class.equals(true))
-			{
-				p = new Contractuel();
-			}
-			else if(Saisonnier.class.equals(true))
-			{
-				p = new Saisonnier();
-			}
-		}
 		em.persist(p);
 		log.info(p.getNomPersonne() + " a bien ete enregistre dans l'hotel "+h.getNomHotel());
 		return p;
 	}
 
 	@Override
-	public Personne updatePersonne(Personne p) {
+	public Personne updatePersonne(Personne p) throws ParameterException {
+		if(p.getIdPersonne()==null)
+		{
+			throw new ParameterException("La personne referee n'existe pas.");
+		}
 		em.merge(p);
 		log.info(p.getNomPersonne() + " a bien ete modifie.");
 		return p;
 	}
 
 	@Override
-	public Personne deletePersonne(Long id) {
+	public Personne deletePersonne(Long id) throws ParameterException {
 		Personne p = em.find(Personne.class, id);
+		if(p==null)
+		{
+			throw new ParameterException("La personne referee n'existe pas.");
+		}
 		em.remove(p);
 		log.info(p.getNomPersonne() + " a bien ete supprime.");
 		return p;
 	}
 
 	@Override
-	public Personne getPersonne(Long idPersonne) {
+	public Personne getPersonne(Long idPersonne) throws ParameterException {
 		Personne p = em.find(Personne.class, idPersonne);
+		if(p==null)
+		{
+			throw new ParameterException("La personne referee n'existe pas.");
+		}
 		log.info(p.getNomPersonne() + " a bien ete recupere.");
 		return p;
 	}

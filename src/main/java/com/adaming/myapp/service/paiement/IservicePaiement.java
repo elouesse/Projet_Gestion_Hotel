@@ -1,6 +1,9 @@
 package com.adaming.myapp.service.paiement;
 
+import java.util.List;
+
 import com.adaming.myapp.entities.Paiement;
+import com.adaming.myapp.exception.ParameterException;
 
 /**
  * Nom Classe: Idaoproduit
@@ -11,7 +14,8 @@ import com.adaming.myapp.entities.Paiement;
  */
 public interface IservicePaiement {
 	
-	public Paiement addPaiement(Paiement p, Long idFacture);
-	public Double getBeneficeAnnuelle(int annee);
+	public Paiement addPaiement(Paiement p, Long idFacture) throws ParameterException;
+	public Double getBeneficeAnnuelle(Long idHotel, Integer annee) throws ParameterException;
+	public List<Paiement> getListePaiementParHotel(Long idHotel) throws ParameterException;
 
 }

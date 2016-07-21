@@ -3,10 +3,13 @@
  */
 package com.adaming.myapp.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Nom Classe: Produit
@@ -27,7 +30,10 @@ public class Produit {
 	private String nomProduit;
 	private String referenceProduit;
 	private Integer quantiteProduite;
-
+	
+	//Association
+	@OneToMany
+    private List<Consommation> tabC;
 	
 	// Constructors
 	public Produit() {
@@ -72,6 +78,12 @@ public class Produit {
 	}
 	public void setQuantiteProduite(Integer quantiteProduite) {
 		this.quantiteProduite = quantiteProduite;
+	}
+	public List<Consommation> getTabC() {
+		return tabC;
+	}
+	public void setTqbC(List<Consommation> tabC) {
+		this.tabC = tabC;
 	}
 
 }

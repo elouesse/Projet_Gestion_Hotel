@@ -12,6 +12,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Employe
@@ -28,7 +30,8 @@ import javax.persistence.InheritanceType;
 public abstract class Employe extends Personne {
 
 	// Attributes
-	protected Double salaire; // PROTECTED OR PRIVATE
+	protected Double salaire;
+	@Temporal(TemporalType.DATE)
 	protected Date dateEntreService;
 	
 	

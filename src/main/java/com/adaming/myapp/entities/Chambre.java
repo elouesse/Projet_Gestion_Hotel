@@ -44,7 +44,7 @@ public abstract class Chambre {
 	protected  Integer nombreLit = 1;
 
 	//Association
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="chambre", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="chambre",cascade=CascadeType.REMOVE, fetch=FetchType.EAGER,orphanRemoval=true)
 	private List<Reservation> reserv;
 	@ManyToOne
 	@JoinColumn(name="idHotel")
@@ -103,9 +103,13 @@ public abstract class Chambre {
 	public Integer getNombreLit() {
 		return nombreLit;
 	}
-
+	
+	public List<Reservation> getReserv() {
+		return reserv;
+	}
+	public void setReserv(List<Reservation> reserv) {
+		this.reserv = reserv;
+	}
 	// Getters and Setters
-
-
 
 }

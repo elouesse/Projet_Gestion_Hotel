@@ -34,7 +34,7 @@ public class DaoHotel implements IdaoHotel {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Personne> getListeDesEmployes(Long idHotel) {
-		Query query = em.createQuery(" from Personne p where idHotel=:x and TYPE_PERSONNE ='saisonnier' or TYPE_PERSONNE ='contractuel' " );// Requete!!!!
+		Query query = em.createQuery(" from Personne p where idHotel=:x and (TYPE_PERSONNE ='saisonnier' or TYPE_PERSONNE ='contractuel') " );// Requete!!!!
 		query.setParameter("x", idHotel);
 		log.info("L'hôtel " + idHotel + " contient "
 				+ query.getResultList().size() + " employés!");

@@ -9,9 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.adaming.myapp.entities.Consommation;
-import com.adaming.myapp.entities.Personne;
 import com.adaming.myapp.entities.Produit;
 import com.adaming.myapp.entities.Reservation;
+import com.adaming.myapp.exception.ParameterException;
+import com.adaming.myapp.exception.QuantityExceededException;
 
 public class DaoConsommation implements IdaoConsommation {
 
@@ -21,10 +22,23 @@ public class DaoConsommation implements IdaoConsommation {
 
 	@Override
 	public Consommation addConsommation(Consommation co, Long idProduit,
-			Long idReserv) {
+			Long idReserv) throws ParameterException, QuantityExceededException {
 		Produit pr = em.find(Produit.class, idProduit);
+		if(pr==null)
+		{
+			throw new ParameterException("Le produit referee n'existe pas.");
+		}
 		co.setProduit(pr);
+		if(co.getQuantiteConsommee()>pr.getQuantiteProduite())
+		{
+			throw new QuantityExceededException("Le stock du produit n'est pas suffisant.");
+		}
+		co.getProduit().setQuantiteProduite(pr.getQuantiteProduite()-co.getQuantiteConsommee());
 		Reservation r = em.find(Reservation.class, idReserv);
+		if(r==null)
+		{
+			throw new ParameterException("La reservation referee n'existe pas.");
+		}
 		co.setReserv(r);
 		em.persist(co);
 		log.info("La consommation de " + co.getProduit().getNomProduit()+" pour la reservation "+r.getIdReservation()
@@ -35,10 +49,25 @@ public class DaoConsommation implements IdaoConsommation {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Produit> getConsomProduit() {
-		Query req = em.createQuery("idProduit,prixProduit,nomProduit,referenceProduit,quantiteProduite from Consommation c INNER JOIN Produit p ON p.idProduit=c.idProduit");
-		log.info("Il existe une liste de " + req.getResultList().size()
-				+ " de produits Consommes");
-		return req.getResultList();
+		Query req = em.createQuery("from Produit");
+		List<Produit> tab = req.getResultList();
+		req = em.createQuery("from Consommation");
+		List<Consommation> tabC = req.getResultList();
+		List<Produit> tabP = new ArrayList<Produit>();
+		for(Produit p:tab)
+		{
+			for(Consommation co:tabC)
+			{
+				if(co.getProduit()==p)
+				{
+					tabP.add(p);
+					break;
+				}
+			}
+		}
+		log.info("Il existe une liste de " + tabP.size()
+				+ " de produits Consommes pour une liste de "+tab.size()+" produits");
+		return tabP;
 	}
 
 }

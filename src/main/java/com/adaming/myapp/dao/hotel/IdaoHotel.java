@@ -2,8 +2,6 @@ package com.adaming.myapp.dao.hotel;
 
 import java.util.List;
 
-import com.adaming.myapp.entities.Client;
-import com.adaming.myapp.entities.Employe;
 import com.adaming.myapp.entities.Hotel;
 import com.adaming.myapp.entities.Personne;
 

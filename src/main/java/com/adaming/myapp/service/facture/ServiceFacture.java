@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adaming.myapp.dao.facture.IdaoFacture;
 import com.adaming.myapp.entities.Facture;
+import com.adaming.myapp.exception.ParameterException;
 
 
 @Transactional
@@ -21,25 +22,14 @@ public class ServiceFacture implements IserviceFacture {
 	}
 
 	@Override
-	public Facture addFacture(Facture f, Long idReservation, Long idHotel) {
+	public Facture addFacture(Facture f, Long idReserv, Long idHotel) throws ParameterException {
 		
-		return dao.addFacture(f, idReservation, idHotel);
+		return dao.addFacture(f, idReserv, idHotel);
 	}
 
 	@Override
-	public List<Facture> getListeDesFacturesParClient(Long idPersonne) {
-		return dao.getListeDesFacturesParClient(idPersonne);
-	}
-
-	@Override
-	public Double coutAnnuelParClient(Long idPersonne, int annee) {
-		return dao.coutAnnuelParClient(idPersonne, annee);
-	}
-
-	@Override
-	public Double coutSemestrielParClient(Long idPersonne, int annee,
-			int semestre) {
-		return dao.coutSemestrielParClient(idPersonne, annee, semestre);
+	public List<Facture> getListeDesFacturesParClient(Long idClient) throws ParameterException {
+		return dao.getListeDesFacturesParClient(idClient);
 	}
 
 }

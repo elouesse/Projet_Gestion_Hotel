@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.adaming.myapp.dao.consommation.IdaoConsommation;
 import com.adaming.myapp.entities.Consommation;
 import com.adaming.myapp.entities.Produit;
+import com.adaming.myapp.exception.ParameterException;
+import com.adaming.myapp.exception.QuantityExceededException;
 
 
 @Transactional
@@ -23,7 +25,7 @@ public class ServiceConsommation implements IserviceConsommation {
 
 	@Override
 	public Consommation addConsommation(Consommation co, Long idProduit,
-			Long idReserv) {
+			Long idReserv) throws ParameterException, QuantityExceededException {
 		return dao.addConsommation(co, idProduit, idReserv);
 	}
 

@@ -38,7 +38,7 @@ public class Consommation {
 	@ManyToOne
 	@JoinColumn(name="idReservation")
 	private Reservation reserv;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE)
 	private List<Personne> personne;
 
 

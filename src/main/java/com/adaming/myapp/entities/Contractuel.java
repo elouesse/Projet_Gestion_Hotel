@@ -28,7 +28,6 @@ public class Contractuel extends Employe {
 	public Contractuel() {
 		super();
 	}
-	
 	public Contractuel(String nomPersonne, String prenomPersonne,
 			Date dateDeNaissance, String adrPersonne, String adrEmail,
 			String numeroTelephone, Double salaire, Date dateEntreService,Double prime) {

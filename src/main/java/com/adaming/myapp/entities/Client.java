@@ -5,9 +5,10 @@ package com.adaming.myapp.entities;
 
 import java.util.Date;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Client
@@ -22,6 +23,7 @@ import javax.persistence.Entity;
 public class Client extends Personne {
 
 	// Attributes
+	@Temporal(TemporalType.DATE)
 	private Date dateInscription;
 	private Double reduction;
 	private Integer nombreReservation;
@@ -30,10 +32,8 @@ public class Client extends Personne {
 	public Client() {
 		super();
 	}
-	public Client(String nomPersonne, String prenomPersonne,
-			Date dateDeNaissance, String adrPersonne, String adrEmail,
-			String numeroTelephone,Date dateInscription, Double reduction,
-			Integer nombreReservation) {
+	public Client(String nomPersonne, String prenomPersonne,Date dateDeNaissance, String adrPersonne, String adrEmail,
+			String numeroTelephone, Date dateInscription, Double reduction,Integer nombreReservation) {
 		super(nomPersonne, prenomPersonne, dateDeNaissance, adrPersonne, adrEmail,
 				numeroTelephone);
 		this.dateInscription = dateInscription;

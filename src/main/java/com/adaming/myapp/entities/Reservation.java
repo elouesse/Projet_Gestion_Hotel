@@ -8,12 +8,17 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 
 
@@ -32,19 +37,23 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idReservation;
+	@Temporal(TemporalType.DATE)
 	private Date dateArrivee;
+	@Temporal(TemporalType.DATE)
 	private Date dateSortie;
 
 	//Associations
 	@ManyToOne
-	@JoinColumn(name="idPersonne")
+	@JoinColumn(name = "idPersonne")
 	private Personne personne;
 	@ManyToOne
-	@JoinColumn(name="idChambre")
+	@JoinColumn(name = "idChambre")
 	private Chambre chambre;
-	@OneToMany
+	@OneToMany(mappedBy = "reserv",cascade = CascadeType.REMOVE)
 	private List<Consommation> consom;
-
+	@ManyToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name="idFacture")
+	private Facture facture;
 
 	//Constructors
 	public Reservation() {
@@ -106,7 +115,13 @@ public class Reservation {
 	public void setConsom(List<Consommation> consom) {
 		this.consom = consom;
 	}
+	
+	public Facture getFacture() {
+		return facture;
+	}
 
-
+	public void setFacture(Facture facture) {
+		this.facture = facture;
+	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.adaming.myapp.dao.produit.IdaoProduit;
 import com.adaming.myapp.entities.Produit;
+import com.adaming.myapp.exception.ParameterException;
 /**
  * Nom Classe: Idaoproduit
  * @author Eli, Thierry
@@ -32,12 +33,12 @@ public class ServiceProduit implements IserviceProduit {
 	}
 
 	@Override
-	public Produit updateProduit(Produit p) {
+	public Produit updateProduit(Produit p) throws ParameterException {
 		return dao.updateProduit(p);
 	}
 
 	@Override
-	public Produit deleteProduit(Long idProduit) {
+	public Produit deleteProduit(Long idProduit) throws ParameterException {
 		return dao.deleteProduit(idProduit);
 	}
 
@@ -47,7 +48,7 @@ public class ServiceProduit implements IserviceProduit {
 	}
 
 	@Override
-	public Produit getProduitParId(Long idProduit) {
+	public Produit getProduitParId(Long idProduit) throws ParameterException {
 		return dao.getProduitParId(idProduit);
 	}
 

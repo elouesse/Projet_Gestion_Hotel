@@ -8,11 +8,13 @@ import java.util.logging.Logger;
 
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.adaming.myapp.entities.Produit;
+import com.adaming.myapp.exception.ParameterException;
 /**
  * Nom Classe: Idaoproduit
  * @author Eli, Thierry
@@ -34,14 +36,22 @@ public class DaoProduit implements IdaoProduit {
 		return p;
 	}
 	@Override
-	public Produit updateProduit(Produit p) {
+	public Produit updateProduit(Produit p) throws ParameterException {
+		if(p.getIdProduit()==null)
+		{
+			throw new ParameterException("Le produit referee n'existe pas.");
+		}
 		em.merge(p);
 		log.info("Le produit "+p.getIdProduit()+" a bien été mis à jour!");
 		return p;
 	}
 	@Override
-	public Produit deleteProduit(Long idProduit) {
+	public Produit deleteProduit(Long idProduit) throws ParameterException {
 		Produit p = em.find(Produit.class, idProduit);
+		if(p==null)
+		{
+			throw new ParameterException("Le produit referee n'existe pas.");
+		}
 		em.remove(p);
 		log.info("Le produit "+p.getIdProduit()+" a bien été supprimé!");
 		return p;
@@ -55,8 +65,12 @@ public class DaoProduit implements IdaoProduit {
 		return query.getResultList();
 	}
 	@Override
-	public Produit getProduitParId(Long idProduit) {
+	public Produit getProduitParId(Long idProduit) throws ParameterException {
 		Produit p = em.find(Produit.class, idProduit);
+		if(p==null)
+		{
+			throw new ParameterException("Le produit referee n'existe pas.");
+		}
 		log.info("Le produit "+idProduit+" a bien été récupéré!");
 		return p;
 	}

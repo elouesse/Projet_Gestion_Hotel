@@ -3,6 +3,7 @@ package com.adaming.myapp.dao.facture;
 import java.util.List;
 
 import com.adaming.myapp.entities.Facture;
+import com.adaming.myapp.exception.ParameterException;
 /**
  * Nom Classe: Reservation
  * @author Eli, Thierry
@@ -12,9 +13,7 @@ import com.adaming.myapp.entities.Facture;
  */
 public interface IdaoFacture {
 	
-	public Facture addFacture(Facture f,Long idReservation, Long idHotel);
-	public List<Facture> getListeDesFacturesParClient(Long idPersonne);
-	public Double coutAnnuelParClient(Long idPersonne, int annee);
-	public Double coutSemestrielParClient(Long idPersonne, int annee,int semestre);
+	public Facture addFacture(Facture f,Long idReserv, Long idHotel) throws ParameterException;
+	public List<Facture> getListeDesFacturesParClient(Long idClient) throws ParameterException;
 
 }

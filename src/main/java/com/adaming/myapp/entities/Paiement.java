@@ -13,7 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Nom Classe: Paiement
@@ -32,10 +35,12 @@ public abstract class Paiement {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long idPaiement;
+	@Temporal(TemporalType.DATE)
 	protected Date datePaiement;
 	
 	//Association
 	@OneToOne
+	@JoinColumn(name="idFacture")
 	private Facture facture;
 
 	// Constructors
