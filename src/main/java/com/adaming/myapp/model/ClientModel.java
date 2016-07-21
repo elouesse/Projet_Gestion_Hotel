@@ -20,15 +20,39 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.adaming.myapp.entities.Hotel;
+import com.adaming.myapp.entities.Personne;
 
 public class ClientModel {
 	
 	List<Hotel> listeDesHotels;
+	List<Personne> listeDesPersonnes;
+	Personne leClient;
+	
+
 	@NotNull
 	private Long idHotel;
 	private Long idPersonne;
 	
 	
+	
+	public Personne getLeClient() {
+		return leClient;
+	}
+	public void setLeClient(Personne leClient) {
+		this.leClient = leClient;
+	}
+	public List<Personne> getListeDesPersonnes() {
+		return listeDesPersonnes;
+	}
+	public void setListeDesPersonnes(List<Personne> listeDesPersonnes) {
+		this.listeDesPersonnes = listeDesPersonnes;
+	}
+	public Long getIdPersonne() {
+		return idPersonne;
+	}
+	public void setIdPersonne(Long idPersonne) {
+		this.idPersonne = idPersonne;
+	}
 	public Long getIdHotel() {
 		return idHotel;
 	}
